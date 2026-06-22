@@ -5,7 +5,7 @@ import os
 from rag import extract_text, chunk_text, build_index, retrieve, generate_answer
 
 st.set_page_config(page_title="PDF Q&A", layout="centered")
-st.title("📄 PDF Q&A with RAG")
+st.title("PDF Q&A with RAG")
 st.caption("Upload a PDF, then ask questions about its contents.")
 
 # Session setup 
@@ -72,7 +72,7 @@ if st.session_state.index is not None:
         st.subheader("Answer")
         st.write(answer)
 
-        with st.expander("Show retrieved context (what the model used to answer)"):
+        with st.expander("Show retrieved context"):
             for i, chunk in enumerate(retrieved_chunks, 1):
                 st.markdown(f"**Chunk {i}:**")
                 st.write(chunk)
