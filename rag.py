@@ -6,13 +6,13 @@ import torch
 from transformers import AutoTokenizer, AutoModelForSeq2SeqLM
 
 GEN_MODEL_NAME = "google/flan-t5-large"
-
-gen_tokenizer = AutoTokenizer.from_pretrained(GEN_MODEL_NAME)
-gen_model = AutoModelForSeq2SeqLM.from_pretrained(GEN_MODEL_NAME).to(device)
-
 device = "cuda" if torch.cuda.is_available() else "cpu"
 
 embedder = SentenceTransformer("all-MiniLM-L6-v2", device=device)
+
+
+gen_tokenizer = AutoTokenizer.from_pretrained(GEN_MODEL_NAME)
+gen_model = AutoModelForSeq2SeqLM.from_pretrained(GEN_MODEL_NAME).to(device)
 
 
 def extract_text(pdf_path):
